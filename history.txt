@@ -1,0 +1,12 @@
+EXERCÍCIO 1:
+docker build -t caddy/miniep6:1.0 .
+docker image ls
+docker container run -p 8000:80 -d --name caddy-server caddy/miniep6:1.0
+
+EXERCÍCIO 2:
+docker container ls
+docker container stop caddy-server
+docker container ls -a
+docker container rm caddy-server
+docker container ls -a
+docker container run -p 8000:80 -d --name caddy-server -v ${PWD}/pages:/usr/src/pages caddy/miniep6:1.0
